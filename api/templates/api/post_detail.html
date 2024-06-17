@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <h2>Comments</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.content }} - {{ comment.user.username }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'comment_create' post.id %}">Add Comment</a>
+    <a href="{% url 'post_list' %}">Back to Post List</a>
+</body>
+</html>
